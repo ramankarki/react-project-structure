@@ -4,7 +4,7 @@ import routes from './routesHelper';
 
 import PageWrapper from './PageWrapper';
 
-export default function RoutesGenerator() {
+export default function Routes() {
   const allTheRoutes = [];
 
   for (let path in routes) {
