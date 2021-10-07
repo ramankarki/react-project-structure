@@ -1,4 +1,4 @@
-import LazyLoadPages from './LazyLoadPages';
+import lazyPages from './lazyPages';
 import routes from './routes';
 
 // Add Routes here
@@ -7,7 +7,7 @@ const mergedRoutes = {};
 for (let path in routes) {
   mergedRoutes[path] = {
     ...routes[path],
-    component: LazyLoadPages[routes[path].pageName],
+    component: lazyPages[routes[path].pageName],
   };
 }
 
