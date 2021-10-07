@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react';
+
+import ErrorBoundary from './components/ErrorBoundary';
+import PageLoadingSpinner from './components/PageLoadingSpinner';
+import './App.scss';
+
+const RoutesGenerator = lazy(() => import('./Routes'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <ErrorBoundary>
+        <Suspense fallback={PageLoadingSpinner()}>
+          <RoutesGenerator />
+        </Suspense>
+      </ErrorBoundary>
+    </main>
   );
 }
 
